@@ -12,34 +12,39 @@
 각 테스트 케이스 별로 첫 줄에는 자연수 N(2 ≤ N ≤ 1,000,000)이 주어지고,
 둘째 줄에는 각 날의 매매가를 나타내는 N개의 자연수들이 공백으로 구분되어 순서대로 주어진다.
 각 날의 매매가는 10,000이하이다.
-3
 
-3
-10 7 6
-3
-3 5 9
-5
-1 1 3 1 2
 
 [출력]
 각 테스트 케이스마다 ‘#x’(x는 테스트케이스 번호를 의미하며 1부터 시작한다)를 출력하고, 최대 이익을 출력한다.
-#1 0
-#2 10
-#3 5
+
 
 [예제 풀이]
 1번째 케이스는 아무 것도 사지 않는 것이 최대 이익이다.
 2번째 케이스는 1,2일에 각각 한 개씩 사서 세 번째 날에 두 개를 팔면 10의 이익을 얻을 수 있다.
 """
-T = int(input())
 
-for i in range(1, T+1):
-    N = int(input())
-    price = list(map(int, input().split()))
-    revenue = 0
-    cost = 0
-    
+# for 문을 3중첩해서 시간이 너무 많이 걸린다
+ 
+n_of_case = int(input())
+ 
+# 케이스 별 입력값 받아와서 int 가지는 list로 만들기
+for k in range(1, n_of_case + 1):
+    length = int(input())
+    num_list = list(map(int, input().split(' ')))
+     
+# 케이스 별 purchase 입력 및 sales 초기화
+    purchase = sum(num_list)
+    sales = 0
+     
+    while len(num_list) > 0:
+        max_num = max(num_list)
+        max_index = num_list.index(max_num)
+        sales += (max_index + 1) * max_num
+         
+        num_list = num_list[max_index+1 :]
+      
+    profit = sales - purchase
+    print("#{0} {1}".format(k, profit))
 
 
 
-    print('#{0}, {최대이익}'.format(i, 최대이익))

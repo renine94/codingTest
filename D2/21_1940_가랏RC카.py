@@ -49,25 +49,27 @@ RC 카의 초기 속도는 0 m/s 이다.
 """
 T = int(input())
 
-for t in range(1, T+1):
+for k in range(1, T+1):
+    N = int(input())
     distance = 0
-    N = int(input())    # 2 <= N <= 30
+    speed = 0
 
-    for n in range(N):
-        command_list = list(map(int, input()))  # 입력받은 Command 를 'command_list' 에 넣어준다. 
+    for sec in range(N):
+        command = list(map(int, input().split()))
+        if command[0] == 0:
+            speed = speed    # 0 : 현재 속도 유지.
+
+        elif command[0] == 1:    # 1 : 가속
+            speed += command[1]
+
+        elif command[0] == 2:    # 2 : 감속
+            if speed < command[1]:
+                speed = 0
+            else:
+                speed -= command[1]
+
+        distance += speed
         
-        for idx, c in enumerate(command_list):
-            
-
-
-
-
-
-
-
-
-
-
-    print('#{0} {1}'.format(i, distance))
+    print(f'#{k} {distance}')
 
 

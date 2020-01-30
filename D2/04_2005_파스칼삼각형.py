@@ -28,7 +28,21 @@ N을 입력 받아 크기 N인 파스칼의 삼각형을 출력하는 프로그�
 """
 
 T = int(input())
-N = int(input())
+
+for i in range(1, T+1):
+    N = int(input())
+    pascal = [1]
+    temp_list = []
+    print('#{}'.format(i))
+
+    temp_list += pascal 
+
+    for n in range(N):
+        print(1)
+
+
+
+
 
 
 

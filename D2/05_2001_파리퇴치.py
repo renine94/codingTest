@@ -38,7 +38,40 @@ M x M 크기의 파리채를 한 번 내리쳐 최대한 많은 파리를 죽이
 #2 159
 ...
 """
+import sys
+sys.stdin = open('input.txt', 'r')
+
 T = int(input())
 
-for i in range(1, T+1):
-    a, b = map(int, input().split())
+for t in range(1, T+1):
+    result = []    
+    # N : 정사각형 N
+    # M : 파리채
+    N, M = map(int, input().split())
+    N_Rectangle = []
+
+    # 2차원 정사각형 생성
+    for n in range(N):
+        N_Rectangle.append(input().split()) 
+    
+    # print(N_Rectangle)
+    # print('==============================')
+
+    for i in range(N-M+1):
+        for j in range(N-M+1):
+            count = 0
+            for k in range(i, M+i):
+                for kk in range(j, M+j):
+                    count += int(N_Rectangle[k][kk])
+            result.append(count)
+
+    print('#{} {}'.format(t, max(result)))
+
+
+
+
+
+
+
+
+    print('#{} {}'.format(t, result))

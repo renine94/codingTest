@@ -1,6 +1,6 @@
 # 에라토스테네스의 체
 # https://wikidocs.net/21638
-n=pow(10, 6)
+n=10**6
 a = [False,False] + [True]*(n-1)
 primes=[]
 

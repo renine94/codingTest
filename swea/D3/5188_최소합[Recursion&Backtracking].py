@@ -1,3 +1,5 @@
+# https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDYSqAAbw5UW6&subjectId=AWUYDrI61lYDFAVT#
+
 def find(r, c, s):
     global minV
     if r == N-1 and c == N-1: # 목적지 도착

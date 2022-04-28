@@ -1,7 +1,7 @@
 ### 코딩테스트 대비 알고리즘 공부
 
-- swea
+[x] swea (Samsung SW Academy)
 
-- 프로그래머스
+[x] 프로그래머스
 
-- 백준
+[x] 백준

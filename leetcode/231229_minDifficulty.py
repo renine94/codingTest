@@ -10,7 +10,7 @@ class Solution:
         
         # Initialize a 2D array to store the minimum difficulty for each subproblem
         dp = [[float('inf')] * (d + 1) for _ in range(n + 1)]
-        dp[0][0] = 0
+        dp[0][0] = 0  # DP[i][k] i개의 작업을 k 일 안에 완료하는데 필요한 최소 어려움의 양
         
         # Iterate through jobs and days to fill the DP array
         for i in range(1, n + 1):

@@ -12,6 +12,14 @@ class Solution:
             for _ in range(i):
                 result += c
         return result
+    
+
+from collections import Counter
+
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        sorted_s = sorted(Counter(s).items(), key=lambda x: x[1], reverse=True)
+        return ''.join([c for c, i in sorted_s for _ in range(i)])
 
 
 

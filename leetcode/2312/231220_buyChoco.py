@@ -6,7 +6,7 @@ class Solution:
             remain_money = money - min_val
         else:
             return money
-        
+
         second_min_val = sorted_prices.pop(0)
         if remain_money > second_min_val:
             remain_money -= second_min_val
@@ -19,6 +19,7 @@ class Solution:
 
 ########################################
 
+
 class Solution:
     def buyChoco(self, prices, money):
         prices.sort()
@@ -28,4 +29,3 @@ class Solution:
         if remain_money < 0:
             return money
         return remain_money
-        

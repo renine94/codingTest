@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/
+
 from typing import List
 from collections import Counter
 

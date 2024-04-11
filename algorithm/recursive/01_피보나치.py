@@ -10,13 +10,11 @@ def fibo(n):
     이는 피보나치 수열의 특성상 이전에 계산된 값들이 다음 계산에 재활용될 가능성이 높기 때문에 메모리를 적게 사용하면서도 효율적인 캐싱을 수행합니다.
     따라서 이러한 메모이제이션을 통해, 이전에 계산된 값을 다시 계산하지 않고 저장된 값을 바로 반환함으로써 실행 속도가 빨라지게 됩니다.
     """
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
+    if n < 2:
+        return n
 
     return fibo(n - 1) + fibo(n - 2)
 
 
-for i in range(50):
+for i in range(100):
     print(fibo(i))

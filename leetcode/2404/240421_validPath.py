@@ -10,18 +10,17 @@ class Solution:
         if n == 1:
             return True
 
-        nodes = defaultdict(list)
+        graph = defaultdict(list)
         visited = [0] * n
 
-        for edge in edges:
-            start, end = edge
-            nodes[start].append(end)
-            nodes[end].append(start)
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
 
         stack = [source]
         while stack:
             node = stack.pop()
-            next_nodes = nodes[node]
+            next_nodes = graph[node]
             if destination in next_nodes:
                 return True
             else:

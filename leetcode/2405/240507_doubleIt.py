@@ -1,7 +1,6 @@
 # https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/
 import sys
 from typing import Optional
-from decimal import Decimal
 
 sys.set_int_max_str_digits(0)
 
@@ -35,6 +34,31 @@ class Solution:
         dummy.next = current
 
         for v in double_value:
+            node = ListNode(v)
+            current.next = node
+            current = node
+
+        return dummy.next
+
+
+class Solution:
+    def doubleIt(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        values = ""
+        current = head
+        while current:
+            values += str(current.val)
+            current = current.next
+        double = int(values) * 2
+        double_value = str(double)
+
+        dummy = ListNode(0)
+
+        first_value = double_value[0]
+        current = ListNode(val=first_value)
+
+        dummy.next = current
+
+        for v in double_value[1:]:
             node = ListNode(v)
             current.next = node
             current = node

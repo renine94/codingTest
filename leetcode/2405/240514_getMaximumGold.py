@@ -45,3 +45,34 @@ class Solution:
                     dfs(i, j, grid[i][j], visited)
 
         return max_gold
+
+
+class Solution:
+    def getMaximumGold(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        max_gold = 0
+
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] > 0:
+                    visited = [[0] * n for _ in range(m)]
+                    visited[i][j] = 1
+                    max_gold = max(max_gold, self.dfs(i, j, grid, visited, grid[i][j]))
+
+        return max_gold
+
+    def dfs(self, x, y, grid, visited, curr_gold):
+        m, n = len(grid), len(grid[0])
+        max_gold = curr_gold
+
+        dx = [-1, 1, 0, 0]
+        dy = [0, 0, -1, 1]
+
+        for k in range(4):
+            nx, ny = x + dx[k], y + dy[k]
+            if 0 <= nx < m and 0 <= ny < n and grid[nx][ny] > 0 and visited[nx][ny] == 0:
+                visited[nx][ny] = 1
+                max_gold = max(max_gold, self.dfs(nx, ny, grid, visited, curr_gold + grid[nx][ny]))
+                visited[nx][ny] = 0
+
+        return max_gold
